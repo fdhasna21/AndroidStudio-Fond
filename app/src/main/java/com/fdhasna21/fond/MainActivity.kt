@@ -24,6 +24,7 @@ import retrofit2.Response
 
 /**
  * Created by Fernanda Hasna on 26/10/2024.
+ * Updated by Fernanda Hasna on 27/10/2024.
  */
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate),
@@ -44,8 +45,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                 itemAdapter.notifyDataSetChanged()
             }
         }
-
-        /** == Setup Current Location == **/
     }
 
     override fun setupUI() {

@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.graphics.Color.alpha
 import android.view.View
 import android.view.View.OnClickListener
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.bumptech.glide.Glide
 import com.fdhasna21.fond.base.BaseActivity
 import com.fdhasna21.fond.databinding.ActivityDetailBinding
@@ -24,10 +25,11 @@ import com.google.android.gms.maps.model.PolylineOptions
 
 /**
  * Created by Fernanda Hasna on 26/10/2024.
+ * Updated by Fernanda Hasna on 27/10/2024.
  */
 
-class DetailActivity : BaseActivity<ActivityDetailBinding>(ActivityDetailBinding::inflate), OnClickListener,
-    OnMapReadyCallback, OnCameraIdleListener, OnCameraMoveListener, OnMarkerClickListener {
+class DetailActivity : BaseActivity<ActivityDetailBinding>(ActivityDetailBinding::inflate),
+    OnClickListener, SwipeRefreshLayout.OnRefreshListener, OnMapReadyCallback, OnCameraIdleListener, OnCameraMoveListener, OnMarkerClickListener {
 
     private lateinit var resto : ItemResto
     private lateinit var mMap: GoogleMap
@@ -49,6 +51,9 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(ActivityDetailBinding
                 /**== Setup Button Listener ==**/
                 addressMore.setOnClickListener(this@DetailActivity)
                 galleryMore.setOnClickListener(this@DetailActivity)
+
+                /**== Setup Swipe Refresh ==**/
+                refreshRecyclerView.setOnRefreshListener(this@DetailActivity)
 
                 /**== Setup Mapping Data ==**/
                 detailName.text = name
@@ -131,6 +136,10 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(ActivityDetailBinding
         mMap.uiSettings.isCompassEnabled = true
         mMap.uiSettings.isRotateGesturesEnabled = true
         setMarkLocation()
+    }
+
+    override fun onRefresh() {
+        binding.refreshRecyclerView.isRefreshing = false
     }
 
     override fun onCameraIdle() {}
