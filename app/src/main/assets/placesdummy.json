@@ -1,0 +1,427 @@
+{
+  "results": [
+    {
+      "fsq_id": "53f3404b498e8aa2aa558122",
+      "categories": [
+        {
+          "id": 13065,
+          "name": "Restaurant",
+          "short_name": "Restaurant",
+          "plural_name": "Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "LikelyOpen",
+      "distance": 3257,
+      "geocodes": {
+        "main": {
+          "latitude": -6.258052,
+          "longitude": 106.950135
+        }
+      },
+      "link": "/v3/places/53f3404b498e8aa2aa558122",
+      "location": {
+        "address": "Jalan Caman Raya 116,Jatibening-Bekasi",
+        "country": "ID",
+        "cross_street": "",
+        "formatted_address": "Jalan Caman Raya 116,Jatibening-Bekasi, Bekasi, Jawa Barat 17412",
+        "locality": "Bekasi",
+        "postcode": "17412",
+        "region": "Jawa Barat"
+      },
+      "name": "Restoran Sederhana masakan Padang",
+      "related_places": {},
+      "timezone": "Asia/Jakarta"
+    },
+    {
+      "fsq_id": "54c9f851498e65e160d55709",
+      "categories": [
+        {
+          "id": 13145,
+          "name": "Fast Food Restaurant",
+          "short_name": "Fast Food",
+          "plural_name": "Fast Food Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/fastfood_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "LikelyOpen",
+      "distance": 815,
+      "geocodes": {
+        "drop_off": {
+          "latitude": -6.277579,
+          "longitude": 106.975466
+        },
+        "main": {
+          "latitude": -6.27761,
+          "longitude": 106.975596
+        }
+      },
+      "link": "/v3/places/54c9f851498e65e160d55709",
+      "location": {
+        "address": "Jalan Jaka Setia",
+        "country": "ID",
+        "cross_street": "",
+        "formatted_address": "Jalan Jaka Setia, Bekasi, Jawa Barat",
+        "locality": "Bekasi",
+        "region": "Jawa Barat"
+      },
+      "name": "Richeese Factory",
+      "related_places": {},
+      "timezone": "Asia/Jakarta"
+    },
+    {
+      "fsq_id": "51d9440a498e0d39c94eb916",
+      "categories": [
+        {
+          "id": 13383,
+          "name": "Steakhouse",
+          "short_name": "Steakhouse",
+          "plural_name": "Steakhouses",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/steakhouse_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "LikelyOpen",
+      "distance": 2768,
+      "geocodes": {
+        "drop_off": {
+          "latitude": -6.255542,
+          "longitude": 106.969675
+        },
+        "main": {
+          "latitude": -6.255891,
+          "longitude": 106.969677
+        }
+      },
+      "link": "/v3/places/51d9440a498e0d39c94eb916",
+      "location": {
+        "address": "Jalan Sedap Malam 177",
+        "country": "ID",
+        "cross_street": "",
+        "formatted_address": "Jalan Sedap Malam 177, Kotamadya Bekasi, Jawa Barat",
+        "locality": "Kotamadya Bekasi",
+        "region": "Jawa Barat"
+      },
+      "name": "Double U Steak",
+      "related_places": {},
+      "timezone": "Asia/Jakarta"
+    },
+    {
+      "fsq_id": "504c4a77e4b05ebf6dc8601e",
+      "categories": [
+        {
+          "id": 13035,
+          "name": "Coffee Shop",
+          "short_name": "Coffee Shop",
+          "plural_name": "Coffee Shops",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "LikelyOpen",
+      "distance": 1875,
+      "geocodes": {
+        "drop_off": {
+          "latitude": -6.264188,
+          "longitude": 106.971327
+        },
+        "main": {
+          "latitude": -6.264085,
+          "longitude": 106.971334
+        }
+      },
+      "link": "/v3/places/504c4a77e4b05ebf6dc8601e",
+      "location": {
+        "address": "Jalan Pulo Sirih Barat Raya Blok FE 425",
+        "country": "ID",
+        "cross_street": "",
+        "formatted_address": "Jalan Pulo Sirih Barat Raya Blok FE 425, Bekasi, Jawa Barat",
+        "locality": "Bekasi",
+        "region": "Jawa Barat"
+      },
+      "name": "Eight Coffee",
+      "related_places": {},
+      "timezone": "Asia/Jakarta"
+    },
+    {
+      "fsq_id": "5a6705c297cf5a4b8ce7458e",
+      "categories": [
+        {
+          "id": 13225,
+          "name": "Indonesian Restaurant",
+          "short_name": "Indonesian",
+          "plural_name": "Indonesian Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/indonesian_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "VeryLikelyOpen",
+      "distance": 3905,
+      "geocodes": {
+        "main": {
+          "latitude": -6.247797,
+          "longitude": 106.956772
+        },
+        "roof": {
+          "latitude": -6.247797,
+          "longitude": 106.956772
+        }
+      },
+      "link": "/v3/places/5a6705c297cf5a4b8ce7458e",
+      "location": {
+        "address": "Komplek Grand Kota Bintang, Unit W-6, Jalan KH Noer Alie, Kalimalang",
+        "country": "ID",
+        "cross_street": "Jl. KH Noer Alie, Jakasampurna",
+        "formatted_address": "Komplek Grand Kota Bintang, Unit W-6, Jalan KH Noer Alie, Kalimalang (Jl. KH Noer Alie, Jakasampurna), Bekasi, Jawa Barat 17412",
+        "locality": "Bekasi",
+        "postcode": "17412",
+        "region": "Jawa Barat"
+      },
+      "name": "Tekko Grand Kota bintang",
+      "related_places": {},
+      "timezone": "Asia/Jakarta"
+    },
+    {
+      "fsq_id": "4ff945dae4b04619c83c8ecb",
+      "categories": [
+        {
+          "id": 13031,
+          "name": "Burger Joint",
+          "short_name": "Burgers",
+          "plural_name": "Burger Joints",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/burger_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13145,
+          "name": "Fast Food Restaurant",
+          "short_name": "Fast Food",
+          "plural_name": "Fast Food Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/fastfood_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [
+        {
+          "id": "ab4a3530-d68a-012e-5619-003048cad9da",
+          "name": "McDonald's"
+        }
+      ],
+      "closed_bucket": "LikelyOpen",
+      "distance": 1961,
+      "geocodes": {
+        "main": {
+          "latitude": -6.295493,
+          "longitude": 106.959109
+        }
+      },
+      "link": "/v3/places/4ff945dae4b04619c83c8ecb",
+      "location": {
+        "address": "Jalan Wibawa Mukti 2",
+        "country": "ID",
+        "cross_street": "Jati Asih",
+        "formatted_address": "Jalan Wibawa Mukti 2 (Jati Asih), Bekasi, Jawa Barat 17432",
+        "locality": "Bekasi",
+        "postcode": "17432",
+        "region": "Jawa Barat"
+      },
+      "name": "McDonald's",
+      "related_places": {},
+      "timezone": "Asia/Jakarta"
+    },
+    {
+      "fsq_id": "558aa11a498e71a376db8d7e",
+      "categories": [
+        {
+          "id": 13145,
+          "name": "Fast Food Restaurant",
+          "short_name": "Fast Food",
+          "plural_name": "Fast Food Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/fastfood_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "LikelyOpen",
+      "distance": 3205,
+      "geocodes": {
+        "drop_off": {
+          "latitude": -6.263218,
+          "longitude": 106.945781
+        },
+        "main": {
+          "latitude": -6.263297,
+          "longitude": 106.945875
+        },
+        "roof": {
+          "latitude": -6.263297,
+          "longitude": 106.945875
+        }
+      },
+      "link": "/v3/places/558aa11a498e71a376db8d7e",
+      "location": {
+        "address": "Jalan Caman Raya",
+        "country": "ID",
+        "cross_street": "Kel. Jatibening, Kec. Pondok Gede",
+        "formatted_address": "Jalan Caman Raya (Kel. Jatibening, Kec. Pondok Gede), Bekasi, Jawa Barat 17412",
+        "locality": "Bekasi",
+        "postcode": "17412",
+        "region": "Jawa Barat"
+      },
+      "name": "Richeese Factory Caman",
+      "related_places": {},
+      "timezone": "Asia/Jakarta"
+    },
+    {
+      "fsq_id": "4d000bc70457b1f700162f78",
+      "categories": [
+        {
+          "id": 13225,
+          "name": "Indonesian Restaurant",
+          "short_name": "Indonesian",
+          "plural_name": "Indonesian Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/indonesian_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "LikelyOpen",
+      "distance": 3769,
+      "geocodes": {
+        "drop_off": {
+          "latitude": -6.259466,
+          "longitude": 106.99534
+        },
+        "main": {
+          "latitude": -6.259375,
+          "longitude": 106.995404
+        }
+      },
+      "link": "/v3/places/4d000bc70457b1f700162f78",
+      "location": {
+        "address": "Jalan Cut Meutia 28",
+        "country": "ID",
+        "cross_street": "Rawa Panjang",
+        "formatted_address": "Jalan Cut Meutia 28 (Rawa Panjang), Bekasi, Jawa Barat",
+        "locality": "Bekasi",
+        "region": "Jawa Barat"
+      },
+      "name": "Pempek Gaby",
+      "related_places": {},
+      "timezone": "Asia/Jakarta"
+    },
+    {
+      "fsq_id": "4d5a146af8ff236a6a58d24a",
+      "categories": [
+        {
+          "id": 13052,
+          "name": "Food Court",
+          "short_name": "Food Court",
+          "plural_name": "Food Courts",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/food_foodcourt_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "LikelyOpen",
+      "distance": 2354,
+      "geocodes": {
+        "main": {
+          "latitude": -6.259619,
+          "longitude": 106.968459
+        }
+      },
+      "link": "/v3/places/4d5a146af8ff236a6a58d24a",
+      "location": {
+        "address": "Taman Galaxy",
+        "country": "ID",
+        "cross_street": "Komp.Taman Galaxy",
+        "formatted_address": "Taman Galaxy (Komp.Taman Galaxy), Kecamatan Bekasi Barat, Jawa Barat",
+        "locality": "Kecamatan Bekasi Barat",
+        "region": "Jawa Barat"
+      },
+      "name": "Wisata Kuliner Taman Galaxy",
+      "related_places": {},
+      "timezone": "Asia/Jakarta"
+    },
+    {
+      "fsq_id": "5275b08711d2f62b1e6d8dcb",
+      "categories": [
+        {
+          "id": 13035,
+          "name": "Coffee Shop",
+          "short_name": "Coffee Shop",
+          "plural_name": "Coffee Shops",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [
+        {
+          "id": "ab4c54c0-d68a-012e-5619-003048cad9da",
+          "name": "Starbucks"
+        }
+      ],
+      "closed_bucket": "LikelyOpen",
+      "distance": 1449,
+      "geocodes": {
+        "main": {
+          "latitude": -6.268047,
+          "longitude": 106.966188
+        }
+      },
+      "link": "/v3/places/5275b08711d2f62b1e6d8dcb",
+      "location": {
+        "address": "Grand Galaxy Park Ground Floor",
+        "country": "ID",
+        "cross_street": "Jln. Gardenia Raya (Grand Galaxy City)",
+        "formatted_address": "Grand Galaxy Park Ground Floor (Jln. Gardenia Raya (Grand Galaxy City)), Bekasi, Jawa Barat",
+        "locality": "Bekasi",
+        "region": "Jawa Barat"
+      },
+      "name": "Starbucks",
+      "related_places": {},
+      "timezone": "Asia/Jakarta"
+    }
+  ],
+  "context": {
+    "geo_bounds": {
+      "circle": {
+        "center": {
+          "latitude": -6.280798,
+          "longitude": 106.968946
+        },
+        "radius": 5000
+      }
+    }
+  }
+}

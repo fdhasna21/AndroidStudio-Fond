@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name"  translatable="false">Fond</string>
+    <string name="created_by" translatable="false">Created by fdhasna21</string>
+    <string name="copyright" translatable="false">Copyright 2024</string>
+    <string name="search">Search</string>
+    <string name="icon">icon</string>
+    <string name="name">Name</string>
+    <string name="category">Category</string>
+    <string name="address">Address</string>
+    <string name="gallery">Gallery</string>
+    <string name="more">more</string>
+    <string name="source">Source : https://foursquare.com</string>
+    <string name="dummy_distance">12 m</string>
+    <string name="distance_to_current_location">Distance to current location</string>
+</resources>

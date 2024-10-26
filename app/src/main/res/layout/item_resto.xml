@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/row_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="12dp"
+    android:paddingHorizontal="@dimen/medium_16"
+    android:background="?attr/selectableItemBackground">
+
+    <ImageView
+        android:id="@+id/row_image"
+        android:layout_width="@dimen/extra_big_48"
+        android:layout_height="@dimen/extra_big_48"
+        android:contentDescription="@string/icon"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/row_category"
+        style="@style/TextViewCustom.ExtraSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/medium_16"
+        android:layout_toEndOf="@id/row_image"
+        android:layout_toStartOf="@+id/row_distance"
+        android:textAllCaps="true"
+        android:letterSpacing="0.1"
+        android:maxLines="1"
+        android:text="@string/category" />
+
+    <TextView
+        android:id="@+id/row_name"
+        style="@style/TextViewCustom.Medium.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/row_category"
+        android:layout_alignStart="@+id/row_category"
+        android:layout_marginTop="@dimen/extra_small_4"
+        android:layout_toStartOf="@+id/row_distance"
+        android:maxLines="1"
+        android:text="@string/name" />
+
+    <TextView
+        android:id="@+id/row_distance"
+        style="@style/TextViewCustom.ExtraSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/extra_small_4"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:maxLines="1"
+        android:text="@string/dummy_distance"/>
+</RelativeLayout>

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/topBarLayout"
+        android:layout_width="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            style="@style/Widget.MaterialComponents.Toolbar.Surface"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?android:attr/windowBackground"
+            android:theme="@style/Theme.Fond">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/detail_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    style="@style/TextViewCustom.Small"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.1"
+                    android:maxLines="1"
+                    android:text="@string/category" />
+
+                <TextView
+                    android:id="@+id/detail_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    style="@style/TextViewCustom.ExtraBig.Bold"
+                    android:text="@string/name" />
+            </LinearLayout>
+        </com.google.android.material.appbar.MaterialToolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresh_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/small_8"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextViewCustom.Small"
+                android:layout_marginHorizontal="@dimen/medium_16"
+                android:layout_marginVertical="@dimen/extra_small_4"
+                android:text="@string/distance_to_current_location"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/detail_distance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextViewCustom.Big.Bold"
+                android:layout_marginHorizontal="@dimen/medium_16"
+                android:layout_marginBottom="@dimen/medium_16"
+                android:text="@string/dummy_distance"
+                android:gravity="center"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/primary_light"
+                android:layout_marginVertical="@dimen/extra_small_4"/>
+
+            <RelativeLayout
+                android:id="@+id/detail_address"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/extra_big_48"
+                android:background="?attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/extra_big_48"
+                    style="@style/TextViewCustom.Medium.Bold"
+                    android:layout_toStartOf="@id/address_more"
+                    android:text="@string/address"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="@dimen/medium_16"/>
+
+                <ImageButton
+                    android:id="@+id/address_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/extra_big_48"
+                    android:layout_alignParentEnd="true"
+                    android:contentDescription="@string/more"
+                    android:src="@drawable/ic_collapse"
+                    android:background="@null"
+                    android:layout_marginEnd="@dimen/medium_16" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp"
+                android:paddingHorizontal="@dimen/medium_16"
+                android:background="?attr/selectableItemBackground">
+
+                <ImageView
+                    android:id="@+id/row_image"
+                    android:layout_width="@dimen/extra_big_48"
+                    android:layout_height="@dimen/extra_big_48"
+                    android:contentDescription="@string/icon"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/ic_launcher"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/address"
+                    style="@style/TextViewCustom.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/medium_big_24"
+                    android:layout_toEndOf="@id/row_image"
+                    android:gravity="center"
+                    android:text="@string/address" />
+
+                <TextView
+                    android:id="@+id/region"
+                    style="@style/TextViewCustom.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/address"
+                    android:layout_alignStart="@+id/address"
+                    android:layout_marginVertical="@dimen/extra_small_4"
+                    android:gravity="center"
+                    android:text="@string/address" />
+
+                <TextView
+                    android:id="@+id/country"
+                    style="@style/TextViewCustom.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/region"
+                    android:layout_alignStart="@+id/region"
+                    android:gravity="center"
+                    android:text="@string/address" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/primary_light"
+                android:layout_marginVertical="@dimen/extra_small_4"/>
+
+            <RelativeLayout
+                android:id="@+id/detail_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/extra_big_48"
+                    style="@style/TextViewCustom.Medium.Bold"
+                    android:layout_toStartOf="@id/gallery_more"
+                    android:text="@string/gallery"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="@dimen/medium_16"/>
+
+                <ImageButton
+                    android:id="@+id/gallery_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/extra_big_48"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_expand"
+                    android:background="@null"
+                    android:contentDescription="@string/more"
+                    android:layout_marginEnd="@dimen/medium_16"/>
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_resto"
+                android:visibility="gone"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="@dimen/small_8"
+                android:layout_marginBottom="@dimen/medium_16"
+                android:layout_marginHorizontal="@dimen/medium_16"
+                style="@style/TextViewCustom.ExtraSmall"
+                android:textColor="@color/primary_light"
+                android:text="@string/source" />
+
+        </LinearLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

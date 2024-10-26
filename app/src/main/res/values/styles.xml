@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Font Size   -->
+    <style name="TextViewCustom"/>
+
+    <style name="TextViewCustom.ExtraSmall" parent="TextViewCustom">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="TextViewCustom.Small" parent="TextViewCustom">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextViewCustom.SmallMedium" parent="TextViewCustom">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextViewCustom.Medium" parent="TextViewCustom">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextViewCustom.Big" parent="TextViewCustom">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextViewCustom.ExtraBig" parent="TextViewCustom">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="TextViewCustom.MultipleExtraBig" parent="TextViewCustom">
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <!-- Bold -->
+    <style name="TextViewCustom.ExtraSmall.Bold" parent="TextViewCustom.ExtraSmall">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextViewCustom.Small.Bold" parent="TextViewCustom.Small">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextViewCustom.SmallMedium.Bold" parent="TextViewCustom.SmallMedium">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextViewCustom.Medium.Bold" parent="TextViewCustom.Medium">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextViewCustom.Big.Bold" parent="TextViewCustom.Big">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextViewCustom.ExtraBig.Bold" parent="TextViewCustom.ExtraBig">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextViewCustom.MultipleExtraBig.Bold" parent="TextViewCustom.ExtraBig">
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
