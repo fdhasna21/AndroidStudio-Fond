@@ -44,6 +44,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                 itemAdapter.notifyDataSetChanged()
             }
         }
+
+        /** == Setup Current Location == **/
     }
 
     override fun setupUI() {
@@ -80,7 +82,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                 .create(ServerInterface::class.java)
                 .searchByKeyword(
                     keyword = query,
-                    location = "",
+                    location = getCurrentLocation(),
                     radius = "5000",
                     categories = "13000"
                 )
@@ -141,7 +143,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         ServerAPI().getServerAPI(this)
             .create(ServerInterface::class.java)
             .search(
-                location = "",
+                location = getCurrentLocation(),
                 radius = "5000",
                 categories = "13000"
             )
@@ -173,4 +175,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                 }
             })
     }
+
+    private fun getCurrentLocation():String = currentLongitude.toString() + "," + currentLatitude.toString()
 }
