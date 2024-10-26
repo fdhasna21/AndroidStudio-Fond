@@ -53,10 +53,25 @@
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/small_8"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/item_resto"/>
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/data_not_found"
+                style="@style/TextViewCustom.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/extra_small_4"
+                android:maxLines="1"
+                android:gravity="center"
+                android:text="@string/data_not_found"
+                android:visibility="gone"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_resto" />
+        </FrameLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

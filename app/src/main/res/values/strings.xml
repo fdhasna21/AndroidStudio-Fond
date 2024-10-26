@@ -12,4 +12,5 @@
     <string name="source">Source : https://foursquare.com</string>
     <string name="dummy_distance">12 m</string>
     <string name="distance_to_current_location">Distance to current location</string>
+    <string name="data_not_found">Data not found</string>
 </resources>

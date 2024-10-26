@@ -3,7 +3,9 @@ package com.fdhasna21.fond
 import android.app.SearchManager
 import android.content.Context
 import android.view.MotionEvent
+import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,7 +15,12 @@ import com.fdhasna21.fond.databinding.ActivityMainBinding
 import com.fdhasna21.fond.model.response.ItemResto
 import com.fdhasna21.fond.model.response.PlacesResponse
 import com.fdhasna21.fond.utility.Utils
+import com.fdhasna21.fond.utility.network.ServerAPI
+import com.fdhasna21.fond.utility.network.ServerInterface
 import com.google.gson.Gson
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 /**
  * Created by Fernanda Hasna on 26/10/2024.
@@ -34,7 +41,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
             clear()
             addAll(dummyData.results ?: arrayListOf())
             if(::itemAdapter.isInitialized){
-            itemAdapter.notifyDataSetChanged()
+                itemAdapter.notifyDataSetChanged()
             }
         }
     }
@@ -64,15 +71,62 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     }
 
     override fun onRefresh() {
-        TODO("Not yet implemented")
+        getData()
     }
 
     override fun onQueryTextSubmit(query: String?): Boolean {
-        TODO("Not yet implemented")
+        query?.let {
+            ServerAPI().getServerAPI(this)
+                .create(ServerInterface::class.java)
+                .searchByKeyword(
+                    keyword = query,
+                    location = "",
+                    radius = "5000",
+                    categories = "13000"
+                )
+                ?.enqueue(object : Callback<PlacesResponse> {
+                    override fun onResponse(
+                        call: Call<PlacesResponse>,
+                        response: Response<PlacesResponse>
+                    ) {
+                        binding.refreshRecyclerView.isRefreshing = false
+                        if (response.isSuccessful) {
+                            response.body()?.results.let {
+                                if (it != null) {
+                                    restoList.clear()
+                                    restoList.addAll(it)
+                                    itemAdapter.notifyDataSetChanged()
+                                } else {
+                                    binding.recyclerView.visibility = View.GONE
+                                    binding.dataNotFound.visibility = View.VISIBLE
+                                }
+                            }
+                        } else {
+                            Toast.makeText(
+                                this@MainActivity,
+                                "${response.code()} : ${response.body()}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+
+                    override fun onFailure(call: Call<PlacesResponse>, t: Throwable) {
+                        binding.refreshRecyclerView.isRefreshing = false
+                        Toast.makeText(
+                            this@MainActivity,
+                            "Failed to connect to the server.",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                })
+        } ?: run {
+            setupData()
+        }
+        return true
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
-        TODO("Not yet implemented")
+        return true
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
@@ -84,6 +138,39 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     }
 
     private fun getData(){
+        ServerAPI().getServerAPI(this)
+            .create(ServerInterface::class.java)
+            .search(
+                location = "",
+                radius = "5000",
+                categories = "13000"
+            )
+            ?.enqueue(object :Callback<PlacesResponse>{
+                override fun onResponse(
+                    call: Call<PlacesResponse>,
+                    response: Response<PlacesResponse>
+                ) {
+                    binding.refreshRecyclerView.isRefreshing = false
+                    if(response.isSuccessful) {
+                        response.body()?.results.let {
+                            if (it != null) {
+                                restoList.clear()
+                                restoList.addAll(it)
+                                itemAdapter.notifyDataSetChanged()
+                            } else {
+                                binding.recyclerView.visibility = View.GONE
+                                binding.dataNotFound.visibility = View.VISIBLE
+                            }
+                        }
+                    } else {
+                        Toast.makeText(this@MainActivity, "${response.code()} : ${response.body()}", Toast.LENGTH_SHORT).show()
+                    }
+                }
 
+                override fun onFailure(call: Call<PlacesResponse>, t: Throwable) {
+                    binding.refreshRecyclerView.isRefreshing = false
+                    Toast.makeText(this@MainActivity, "Failed to connect to the server.", Toast.LENGTH_SHORT).show()
+                }
+            })
     }
 }
