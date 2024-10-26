@@ -1,5 +1,7 @@
 package com.fdhasna21.fond.utility
 
+import android.content.Context
+import android.preference.PreferenceManager
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStream
@@ -16,6 +18,28 @@ object Utils {
     interface INTENT {
         companion object {
             const val DETAIL = "detail"
+        }
+    }
+
+    class SPManager {
+        val LONGITUDE = "longitude"
+        val LATITUDE = "latitude"
+
+        fun saveString(activity: Context?, key: String?, value: String?) {
+            val sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(activity)
+            val editor = sharedPreferences.edit()
+            editor.putString(key, value)
+            editor.apply()
+        }
+
+
+        fun getString(activity: Context?, key: String?, defaultValue: String = ""): String {
+            val sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(activity)
+            val value = sharedPreferences.getString(key, defaultValue) ?: ""
+
+            return value
         }
     }
 

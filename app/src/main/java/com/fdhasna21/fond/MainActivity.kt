@@ -176,5 +176,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
             })
     }
 
-    private fun getCurrentLocation():String = currentLongitude.toString() + "," + currentLatitude.toString()
+    private fun getCurrentLocation():String {
+        Utils.SPManager().apply {
+            val long = getString(this@MainActivity, LONGITUDE, (0.0).toString())
+            val lat = getString(this@MainActivity, LATITUDE, (0.0).toString())
+            return lat + "," + long
+        }
+    }
 }

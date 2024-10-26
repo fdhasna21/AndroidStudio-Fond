@@ -34,7 +34,6 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(ActivityDetailBinding
 
     override fun setupData() {
         resto = intent.getParcelableExtra<ItemResto>(Utils.INTENT.DETAIL) ?: ItemResto()
-        askMapsPermissions()
     }
 
     override fun setupUI() {
@@ -144,7 +143,7 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(ActivityDetailBinding
         resto.geocodes?.main?.let {
             it.latitude?.toDouble()
                 ?.let { it1 -> it.longitude?.toDouble()?.let { it2 ->
-                    val latlongCurr = LatLng(currentLatitude, currentLongitude)
+                    val latlongCurr = getCurrentLocation()
                     val currMark = MarkerOptions().position(latlongCurr)
                     currMark.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
                     currMark.draggable(false)
@@ -168,5 +167,13 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(ActivityDetailBinding
                     }
                     mMap.addPolyline(line)
                 } } }
+    }
+
+    private fun getCurrentLocation() : LatLng {
+        Utils.SPManager().apply {
+            val long = Utils.SPManager().getString(this@DetailActivity, LONGITUDE, (0.0).toString()).toDouble()
+            val lat = Utils.SPManager().getString(this@DetailActivity, LATITUDE, (0.0).toString()).toDouble()
+            return LatLng(lat, long)
+        }
     }
 }
