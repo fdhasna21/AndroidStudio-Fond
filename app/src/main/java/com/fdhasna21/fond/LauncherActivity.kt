@@ -16,10 +16,12 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.tasks.Task
 import com.permissionx.guolindev.PermissionX
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 /**
  * Created by Fernanda Hasna on 26/10/2024.
+ * Updated by Fernanda Hasna on 27/10/2024.
  */
 
 class LauncherActivity : BaseActivity<ActivityLauncherBinding>(ActivityLauncherBinding::inflate) {
@@ -46,6 +48,7 @@ class LauncherActivity : BaseActivity<ActivityLauncherBinding>(ActivityLauncherB
     private fun openMainActivity() {
         lifecycleScope.launch {
             lifecycleScope.launch {
+                delay(2000)
                 val mainIntent = Intent(this@LauncherActivity, MainActivity::class.java)
                 startActivity(mainIntent)
                 finish()
