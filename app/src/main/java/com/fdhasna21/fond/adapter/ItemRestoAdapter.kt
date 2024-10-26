@@ -1,4 +1,4 @@
-package com.fdhasna21.fond
+package com.fdhasna21.fond.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.fdhasna21.fond.DetailActivity
+import com.fdhasna21.fond.R
 import com.fdhasna21.fond.databinding.ItemRestoBinding
 import com.fdhasna21.fond.model.response.Categories
 import com.fdhasna21.fond.model.response.ItemResto
@@ -13,6 +15,7 @@ import com.fdhasna21.fond.utility.Utils
 
 /**
  * Created by Fernanda Hasna on 26/10/2024.
+ * Updated by Fernanda Hasna on 27/10/2024.
  */
 
 class ItemRestoAdapter(
@@ -40,6 +43,7 @@ class ItemRestoAdapter(
                         Glide.with(context)
                             .load(it.prefix + "64" + it.suffix)
                             .circleCrop()
+                            .error(R.mipmap.ic_launcher)
                             .into(holder.binding.rowImage)
                     }
                 }

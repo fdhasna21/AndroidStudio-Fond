@@ -10,6 +10,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.fdhasna21.fond.adapter.ItemRestoAdapter
 import com.fdhasna21.fond.base.BaseActivity
 import com.fdhasna21.fond.databinding.ActivityMainBinding
 import com.fdhasna21.fond.model.response.ItemResto
@@ -35,16 +36,18 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     private lateinit var layoutManager : LinearLayoutManager
 
     override fun setupData() {
-        /** == Setup Dummy as Initial Data == **/
-        val textfile = Utils.convertStreamToString(resources.assets.open("placesdummy.json"))
-        val dummyData = Gson().fromJson(textfile, PlacesResponse::class.java)
-        restoList.apply {
-            clear()
-            addAll(dummyData.results ?: arrayListOf())
-            if(::itemAdapter.isInitialized){
-                itemAdapter.notifyDataSetChanged()
-            }
-        }
+//        /** == Setup Dummy as Initial Data for Development == **/
+//        val textfile = Utils.convertStreamToString(resources.assets.open("placesdummy.json"))
+//        val dummyData = Gson().fromJson(textfile, PlacesResponse::class.java)
+//        restoList.apply {
+//            clear()
+//            addAll(dummyData.results ?: arrayListOf())
+//            if(::itemAdapter.isInitialized){
+//                itemAdapter.notifyDataSetChanged()
+//            }
+//        }
+
+        getData()
     }
 
     override fun setupUI() {

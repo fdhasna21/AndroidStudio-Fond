@@ -9,4 +9,5 @@
     <dimen name="big_32">32dp</dimen>
     <dimen name="extra_big_48">48dp</dimen>
     <dimen name="multiple_big_64">64dp</dimen>
+    <dimen name="maxi_120">120dp</dimen>
 </resources>

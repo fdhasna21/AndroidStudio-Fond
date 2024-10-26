@@ -4,12 +4,19 @@ import android.graphics.Color
 import android.graphics.Color.alpha
 import android.view.View
 import android.view.View.OnClickListener
+import android.widget.Toast
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.bumptech.glide.Glide
+import com.fdhasna21.fond.adapter.ItemGalleryAdapter
 import com.fdhasna21.fond.base.BaseActivity
 import com.fdhasna21.fond.databinding.ActivityDetailBinding
+import com.fdhasna21.fond.model.ItemGallery
 import com.fdhasna21.fond.model.response.ItemResto
 import com.fdhasna21.fond.utility.Utils
+import com.fdhasna21.fond.utility.network.ServerAPI
+import com.fdhasna21.fond.utility.network.ServerInterface
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.GoogleMap.OnCameraIdleListener
@@ -22,6 +29,9 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PolylineOptions
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 /**
  * Created by Fernanda Hasna on 26/10/2024.
@@ -31,15 +41,21 @@ import com.google.android.gms.maps.model.PolylineOptions
 class DetailActivity : BaseActivity<ActivityDetailBinding>(ActivityDetailBinding::inflate),
     OnClickListener, SwipeRefreshLayout.OnRefreshListener, OnMapReadyCallback, OnCameraIdleListener, OnCameraMoveListener, OnMarkerClickListener {
 
+    private var galleryList = arrayListOf<ItemGallery>()
+    private lateinit var itemAdapter: ItemGalleryAdapter
+    private lateinit var layoutManager : GridLayoutManager
+
     private lateinit var resto : ItemResto
     private lateinit var mMap: GoogleMap
 
     override fun setupData() {
         resto = intent.getParcelableExtra<ItemResto>(Utils.INTENT.DETAIL) ?: ItemResto()
+        getData()
     }
 
     override fun setupUI() {
         binding.apply {
+            /**== Setup Action Bar ==**/
             setSupportActionBar(topAppBar)
             supportActionBar?.apply {
                 setHomeAsUpIndicator(R.drawable.ic_left);
@@ -54,6 +70,19 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(ActivityDetailBinding
 
                 /**== Setup Swipe Refresh ==**/
                 refreshRecyclerView.setOnRefreshListener(this@DetailActivity)
+
+                /**== Setup Recycler View ==**/
+                itemAdapter = ItemGalleryAdapter( this@DetailActivity, galleryList)
+                layoutManager = GridLayoutManager(this@DetailActivity, 3)
+
+                recyclerView.apply {
+                    isNestedScrollingEnabled = false
+                    layoutManager = this@DetailActivity.layoutManager
+                    adapter = itemAdapter
+                    addItemDecoration(object : DividerItemDecoration(this@DetailActivity, VERTICAL) {})
+                    setHasFixedSize(true)
+                    itemAdapter.notifyDataSetChanged()
+                }
 
                 /**== Setup Mapping Data ==**/
                 detailName.text = name
@@ -183,6 +212,47 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(ActivityDetailBinding
             val long = Utils.SPManager().getString(this@DetailActivity, LONGITUDE, (0.0).toString()).toDouble()
             val lat = Utils.SPManager().getString(this@DetailActivity, LATITUDE, (0.0).toString()).toDouble()
             return LatLng(lat, long)
+        }
+    }
+
+    private fun getData(){
+        resto.fsqId?.let {
+            ServerAPI().getServerAPI(this)
+                .create(ServerInterface::class.java)
+                .getGallery(
+                    fsqId = it
+                ).enqueue(object : Callback<ArrayList<ItemGallery>> {
+                    override fun onResponse(
+                        call: Call<ArrayList<ItemGallery>>,
+                        response: Response<ArrayList<ItemGallery>>
+                    ) {
+                        binding.refreshRecyclerView.isRefreshing = false
+                        if (response.isSuccessful) {
+                            response.body().let {
+                                if (it != null) {
+                                    galleryList.clear()
+                                    galleryList.addAll(it)
+                                    itemAdapter.notifyDataSetChanged()
+                                }
+                            }
+                        } else {
+                            Toast.makeText(
+                                this@DetailActivity,
+                                "${response.code()} : ${response.body()}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+
+                    override fun onFailure(call: Call<ArrayList<ItemGallery>>, t: Throwable) {
+                        binding.refreshRecyclerView.isRefreshing = false
+                        Toast.makeText(
+                            this@DetailActivity,
+                            "Failed to connect to the server.",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                })
         }
     }
 }
